@@ -16,7 +16,7 @@ A full-stack notes application with JWT authentication. Users can register, log 
 - **Frontend:** React and Tailwind CSS
 - **Backend:** Node.js and Express
 - **Database:** MongoDB
-- **Authentication:** JSON Web Tokens and bcrypt
+- **Authentication:** JSON Web Tokens and bcryptjs
 
 ## Getting Started
 
