@@ -46,7 +46,7 @@ export const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
 
-    if (!mongoose.isValidObject(id)) {
+    if (!mongoose.isValidObjectId(id)) {
       return res.status(404).json({ message: 'Note not found' });
     }
 
@@ -73,7 +73,7 @@ export const deleteNote = async (req, res) => {
   try {
     const { id } = req.params;
 
-    if (!mongoose.isValidObject(id)) {
+    if (!mongoose.isValidObjectId(id)) {
       return res.status(404).json({ message: 'Note not found' });
     }
 

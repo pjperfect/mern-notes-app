@@ -21,7 +21,7 @@ export const protect = async (req, res, next) => {
 
   let user;
   try {
-    user = await User.findByID(decoded.id);
+    user = await User.findById(decoded.id);
   } catch (err) {
     return res
       .status(500)
