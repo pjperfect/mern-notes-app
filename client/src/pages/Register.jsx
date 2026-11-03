@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout.jsx';
+import PasswordInput from '../components/PasswordInput.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const inputClass =
@@ -12,6 +13,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [confirm, setConfirm] = useState('');
   const [loading, setLoading] = useState(false);
 
   if (user) return <Navigate to="/" replace />;
@@ -19,6 +21,10 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
+    if (password !== confirm) {
+      setError('Passwords do not match');
+      return;
+    }
     setLoading(true);
     try {
       await register(name, email, password);
@@ -79,17 +85,26 @@ export default function Register() {
           <label htmlFor="password" className="block text-sm font-medium">
             Password
           </label>
-          <input
+          <PasswordInput
             id="password"
-            type="password"
             autoComplete="new-password"
-            required
             minLength={6}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={inputClass}
           />
           <p className="mt-1 text-xs text-slate-500">At least 6 characters.</p>
+        </div>
+
+        <div>
+          <label htmlFor="confirm" className="block text-sm font-medium">
+            Confirm password
+          </label>
+          <PasswordInput
+            id="confirm"
+            autoComplete="new-password"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+          />
         </div>
 
         {error && (
