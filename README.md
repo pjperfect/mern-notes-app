@@ -2,8 +2,7 @@
 
 A full-stack notes application with JWT authentication. Users can register, log in, and manage their own private notes.
 
-**Live demo:** https://YOUR-APP.vercel.app
-_(The API runs on a free plan that sleeps when idle, so the first request after a quiet period can take up to about a minute.)_
+**Live demo:** https://mern-notes-app-wine-nu.vercel.app
 
 ## Features
 
